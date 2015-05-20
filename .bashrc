@@ -85,10 +85,11 @@ export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="$(echo -e ${BCyan})[%d/%m/%Y %H:%M:%S]$(echo -e ${NC}) "
 export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
-export PATH="$PATH:/usr/sbin:~/bin/arcanist/arcanist/bin"
-source /home/seth/bin/arcanist/arcanist/resources/shell/bash-completion
+export PATH="$PATH:/usr/sbin:"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+envoy -t ssh-agent -a ~/.ssh/id_rsa_tools
+source <(envoy -p)
 
 # Color definitions (taken from Color Bash Prompt HowTo).
 # Some colors might look different of some terminals.
