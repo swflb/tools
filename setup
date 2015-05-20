@@ -1,17 +1,27 @@
 #!/bin/bash
+
+echo "removing files from target locations"
 rm ~/.bashrc
 rm ~/.conkyrc
 rm ~/.vimrc
 rm ~/toGcc4*
+rm ~/dev/Vantage/.git/hooks/pre-commit
+
 
 cd ~
+echo "link to gcc copying files"
 ln -s dev/tools/toGcc48 toGcc48
 ln -s dev/tools/toGcc49 toGcc49
+echo "setup link to .bashrc"
 ln -s dev/tools/.bashrc .bashrc
+echo "setup link to .conkyrc"
 ln -s dev/tools/.conkyrc .conkyrc
+echo "setup link to .vimrc"
 ln -s dev/tools/.vimrc .vimrc
 
+echo "setup link to pre-commit hook in Vantage repo"
 cd ~/dev/Vantage/.git/hooks
+
 ln -s ~/dev/tools/pre-commit pre-commit
 
 echo "linked tools to locations"
