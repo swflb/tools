@@ -1,0 +1,112 @@
+#!/bin/bash
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# If you want to allow non-ascii filenames set this variable to true.
+allownonascii=$(git config hooks.allownonascii)
+
+# Cross platform projects tend to avoid non-ascii filenames; prevent
+# them from being added to the repository. We exploit the fact that the
+# printable range starts at the space character and ends with tilde.
+if [ "$allownonascii" != "true" ] &&
+	# Note that the use of brackets around a tr range is ok here, (it's
+	# even required, for portability to Solaris 10's /usr/bin/tr), since
+	# the square bracket bytes happen to fall in the designated range.
+	test "$(git diff --cached --name-only --diff-filter=A -z $against |
+	  LC_ALL=C tr -d '[ -~]\0')"
+then
+	echo "Error: Attempt to add a non-ascii file name."
+	echo
+	echo "This can cause problems if you want to work"
+	echo "with people on other platforms."
+	echo
+	echo "To be portable it is advisable to rename the file ..."
+	echo
+	echo "If you know what you are doing you can disable this"
+	echo "check using:"
+	echo
+	echo "  git config hooks.allownonascii true"
+	echo
+	exit 1
+fi
+
+rootdir=`pwd`
+
+# get everything staged for commit. we don't care
+# about deleted files, hence [MARCT] instead of [MADRC].
+grepPattern="\.\(c\|cpp\|h\|hpp\)$"
+listfiles=`git diff --cached --name-only --diff-filter=MARCT | grep $grepPattern`
+
+which clang-format &>/dev/null
+if [ $? -eq 1 ]
+then
+  echo "clang-format not found"  
+else
+  echo "//////////// starting clang-format ////////////" 
+  for eachfile in $listfiles
+  do
+    echo "inloop: $eachfile"
+    clang-format -style=file $eachfile > "$rootdir/temp.txt"
+    mv "$rootdir/temp.txt" $eachfile && echo "Clang-formatted: $eachfile"
+    git diff -p --no-ext-diff $eachfile
+    git add $eachfile
+  done
+fi
+
+# https://pypi.python.org/pypi/lizard
+which lizard &>/dev/null
+if [ $? -eq 1 ]
+then
+  echo "lizard not found"
+else
+  echo "//////////// starting lizard ////////////" 
+  for lizfile in $listfiles
+  do
+    lizard $lizfile -w --CCN=10 #|| exit 1
+  done
+fi
+
+# http://cppcheck.sourceforge.net/
+which cppcheck &>/dev/null
+if [ $? -eq 1 ]
+then
+  echo "cppcheck not found"
+else
+  echo "//////////// starting cppcheck ////////////" 
+  for checkfile in $listfiles
+  do
+    cppcheck $checkfile --enable=all --template '{file}:{line}({severity}-{id}) {message}' --suppress=unreadVariable --suppress=unnecessaryQualification --suppress=unusedFunction --suppress=missingInclude --suppress=unmatchedSuppression --suppress=missingIncludeSystem -q --error-exitcode=1 -I $rootdir/Shared/SdbaseLIB -I $rootdir/Shared/SdimageLIB -I $rootdir/Shared/SdpolicyLIB -I $rootdir/Shared/SdxmlLIB -I $rootdir/Shared/ResourcesINC -I $rootdir/Shared/SdguiLIB -I $rootdir/Shared/SdvidLIB -I $rootdir/Shared/SdmsgLIB -I $rootdir/Database --force || exit 1
+  done
+fi
+
+# https://pypi.python.org/pypi/cpplint
+# http://clang.llvm.org/extra/clang-tidy.html
+# http://clang-analyzer.llvm.org/  -- only on whole code
+
+counting=0
+for filecounting in $listFiles
+do
+  counting=$[counting+1]
+  break # found more than zero, break without counting them all
+done
+
+if [ $counting -eq 0 ]
+then
+  echo "no files to commit"
+  exit 1 #failure, exit
+fi
+
+exec git diff-index --check --cached $against --
