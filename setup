@@ -1,0 +1,17 @@
+#!/bin/bash
+rm ~/.bashrc
+rm ~/.conkyrc
+rm ~/.vimrc
+rm ~/toGcc4*
+
+cd ~
+ln -s dev/tools/toGcc48 toGcc48
+ln -s dev/tools/toGcc49 toGcc49
+ln -s dev/tools/.bashrc .bashrc
+ln -s dev/tools/.conkyrc .conkyrc
+ln -s dev/tools/.vimrc .vimrc
+
+cd ~/dev/Vantage/.git/hooks
+ln -s ~/dev/tools/pre-commit pre-commit
+
+echo "linked tools to locations"

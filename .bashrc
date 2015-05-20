@@ -88,7 +88,7 @@ export EDITOR=/usr/bin/vim
 export PATH="$PATH:/usr/sbin:~/bin/arcanist/arcanist/bin"
 source /home/seth/bin/arcanist/arcanist/resources/shell/bash-completion
 
-
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Color definitions (taken from Color Bash Prompt HowTo).
 # Some colors might look different of some terminals.
