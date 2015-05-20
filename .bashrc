@@ -88,7 +88,6 @@ export EDITOR=/usr/bin/vim
 export PATH="$PATH:/usr/sbin:"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-envoy -t ssh-agent -a ~/.ssh/id_rsa
 envoy -a ~/.ssh/id_rsa_tools
 source <(envoy -p)
 
