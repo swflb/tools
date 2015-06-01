@@ -87,9 +87,9 @@ export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
 export PATH="$PATH:/usr/sbin:"
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-envoy -a ~/.ssh/id_rsa_tools
-source <(envoy -p)
+#export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+#envoy -a ~/.ssh/id_rsa_tools
+#source <(envoy -p)
 
 # Color definitions (taken from Color Bash Prompt HowTo).
 # Some colors might look different of some terminals.
