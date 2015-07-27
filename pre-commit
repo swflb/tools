@@ -44,6 +44,7 @@ then
 fi
 
 rootdir=`pwd`
+tmpdir='/tmp'
 
 # get everything staged for commit. we don't care
 # about deleted files, hence [MARCT] instead of [MADRC].
@@ -53,44 +54,44 @@ listfiles=`git diff --cached --name-only --diff-filter=MARCT | grep $grepPattern
 which clang-format &>/dev/null
 if [ $? -eq 1 ]
 then
-  echo "clang-format not found"  
+  echo "clang-format not found"
 else
-  echo "//////////// starting clang-format ////////////" 
+  echo "//////////// starting clang-format ////////////"
   for eachfile in $listfiles
   do
-    echo "inloop: $eachfile"
-    clang-format -style=file $eachfile > "$rootdir/temp.txt"
-    mv "$rootdir/temp.txt" $eachfile && echo "Clang-formatted: $eachfile"
-    git diff -p --no-ext-diff $eachfile
+    # echo "inloop: $eachfile"
+    clang-format -style=file $eachfile > "$tmpdir/temp.txt"
+    mv "$tmpdir/temp.txt" $eachfile && echo "Clang-formatted: $eachfile"
+    # git diff -p --no-ext-diff $eachfile
     git add $eachfile
   done
 fi
 
 # https://pypi.python.org/pypi/lizard
-which lizard &>/dev/null
-if [ $? -eq 1 ]
-then
-  echo "lizard not found"
-else
-  echo "//////////// starting lizard ////////////" 
-  for lizfile in $listfiles
-  do
-    lizard $lizfile -w --CCN=10 #|| exit 1
-  done
-fi
+#which lizard &>/dev/null
+#if [ $? -eq 1 ]
+#then
+#  echo "lizard not found"
+#else
+#  echo "//////////// starting lizard ////////////"
+#  for lizfile in $listfiles
+#  do
+#    lizard $lizfile -w --CCN=10 #|| exit 1
+#  done
+#fi
 
 # http://cppcheck.sourceforge.net/
-which cppcheck &>/dev/null
-if [ $? -eq 1 ]
-then
-  echo "cppcheck not found"
-else
-  echo "//////////// starting cppcheck ////////////" 
-  for checkfile in $listfiles
-  do
-    cppcheck $checkfile --enable=all --template '{file}:{line}({severity}-{id}) {message}' --suppress=unreadVariable --suppress=unnecessaryQualification --suppress=unusedFunction --suppress=missingInclude --suppress=unmatchedSuppression --suppress=missingIncludeSystem -q --error-exitcode=1 -I $rootdir/Shared/SdbaseLIB -I $rootdir/Shared/SdimageLIB -I $rootdir/Shared/SdpolicyLIB -I $rootdir/Shared/SdxmlLIB -I $rootdir/Shared/ResourcesINC -I $rootdir/Shared/SdguiLIB -I $rootdir/Shared/SdvidLIB -I $rootdir/Shared/SdmsgLIB -I $rootdir/Database --force || exit 1
-  done
-fi
+#which cppcheck &>/dev/null
+#if [ $? -eq 1 ]
+#then
+#  echo "cppcheck not found"
+#else
+#  echo "//////////// starting cppcheck ////////////"
+#  for checkfile in $listfiles
+#  do
+#    cppcheck $checkfile --enable=all --template '{file}:{line}({severity}-{id}) {message}' --suppress=unreadVariable --suppress=unnecessaryQualification --suppress=unusedFunction --suppress=missingInclude --suppress=unmatchedSuppression --suppress=missingIncludeSystem -q --error-exitcode=1 -I $rootdir/Shared/SdbaseLIB -I $rootdir/Shared/SdimageLIB -I $rootdir/Shared/SdpolicyLIB -I $rootdir/Shared/SdxmlLIB -I $rootdir/Shared/ResourcesINC -I $rootdir/Shared/SdguiLIB -I $rootdir/Shared/SdvidLIB -I $rootdir/Shared/SdmsgLIB -I $rootdir/Database --force || exit 1
+#  done
+#fi
 
 # https://pypi.python.org/pypi/cpplint
 # http://clang.llvm.org/extra/clang-tidy.html
@@ -103,10 +104,10 @@ do
   break # found more than zero, break without counting them all
 done
 
-if [ $counting -eq 0 ]
-then
-  echo "no files to commit"
-  exit 1 #failure, exit
-fi
+#if [ $counting -eq 0 ]
+#then
+#  echo "no files to commit"
+#  exit 1 #failure, exit
+#fi
 
 exec git diff-index --check --cached $against --

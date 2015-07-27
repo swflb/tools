@@ -89,6 +89,7 @@ export PATH="$PATH:/usr/sbin:"
 
 #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #envoy -a ~/.ssh/id_rsa_tools
+#envoy -a ~/.ssh/id_rsa_integris
 #source <(envoy -p)
 
 # Color definitions (taken from Color Bash Prompt HowTo).
