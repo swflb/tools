@@ -1,0 +1,9 @@
+Host isrhub.usurf.usu.edu:shumphries/vantage.git
+ IdentityFile ~/.ssh/id_rsa
+
+Host isrhub.usurf.usu.edu:shumphries/tools.git
+ IdentityFile ~/.ssh/id_rsa_tools
+
+Host isrhub.usurf.usu.edu:shumphries/Integris.git
+ IdentityFile ~/.ssh/id_rsa_integris
+
