@@ -4,13 +4,13 @@ echo "removing files from target locations"
 rm ~/.bashrc
 rm ~/.conkyrc
 rm ~/.vimrc
-rm ~/toGcc4*
+rm ~/toGcc*
 rm ~/dev/Vantage/.git/hooks/pre-commit
 
 
 cd ~
 echo "link to gcc copying files"
-ln -s dev/tools/toGcc48 toGcc48
+ln -s dev/tools/toGcc52 toGcc52
 ln -s dev/tools/toGcc49 toGcc49
 echo "setup link to .bashrc"
 ln -s dev/tools/.bashrc .bashrc
