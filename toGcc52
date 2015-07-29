@@ -4,12 +4,12 @@ ln -s /usr/bin/gcc-5.2 /usr/bin/gcc
 rm /usr/bin/g++
 ln -s /usr/bin/g++-5.2 /usr/bin/g++
 rm /usr/bin/c++
-ln -s /usr/bin/g++-5.2 /usr/bin/c++
+ln -s /usr/bin/c++-5.2 /usr/bin/c++
 rm /usr/bin/cc
 ln -s /usr/bin/gcc-5.2 /usr/bin/cc
 
 
 # sudo rm /usr/bin/gcc-4.9
-# sudo cp /usr/bin/gcc /usr/bin/gcc-5.1
+# sudo cp /usr/bin/gcc /usr/bin/gcc-5.2
 # sudo rm /usr/bin/g++-4.9
-# sudo cp /usr/bin/g++ /usr/bin/g++-5.1
+# sudo cp /usr/bin/g++ /usr/bin/g++-5.2

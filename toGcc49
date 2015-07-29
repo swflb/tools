@@ -1,0 +1,9 @@
+#!/bin/bash
+rm /usr/bin/gcc
+ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
+rm /usr/bin/g++
+ln -s /usr/bin/g++-4.8 /usr/bin/g++
+rm /usr/bin/c++
+ln -s /usr/bin/c++-4.8 /usr/bin/c++
+rm /usr/bin/cc
+ln -s /usr/bin/gcc-4.8 /usr/bin/cc
