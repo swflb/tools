@@ -7,7 +7,6 @@ rm ~/.vimrc
 rm ~/toGcc*
 rm ~/dev/Vantage/.git/hooks/pre-commit
 
-
 cd ~
 echo "link to gcc copying files"
 ln -s dev/tools/toGcc52 toGcc52
@@ -24,4 +23,5 @@ cd ~/dev/Vantage/.git/hooks
 
 ln -s ~/dev/tools/pre-commit pre-commit
 
+ln -s ~/dev/tools/git-completion.bash git-completion.bash
 echo "linked tools to locations"
