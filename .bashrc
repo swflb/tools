@@ -12,6 +12,13 @@ if [ -f /etc/bash_completion ]; then
 fi
 complete -cf sudo
 
+if [ -f ~/git-completion.bash ]; then
+      . ~/git-completion.bash
+fi
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+#export PS1='\w$(__git_ps1 " (%s)")\$ '
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
 
 #--------------------------------------------------------------
 #  Automatic setting of $DISPLAY (if not set already).
