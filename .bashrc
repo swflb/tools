@@ -1,4 +1,4 @@
-# If not running interactively, don't do anything
+## If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 # Source global definitions (if any)
@@ -19,6 +19,8 @@ fi
 export GIT_PS1_SHOWDIRTYSTATE=1
 #export PS1='\w$(__git_ps1 " (%s)")\$ '
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+export HDF5_ROOT='/opt/hdf5/'
+export LD_LIBRARY_PATH="/usr/lib64:${LD_LIBRARY_PATH}"
 
 #--------------------------------------------------------------
 #  Automatic setting of $DISPLAY (if not set already).
@@ -92,7 +94,7 @@ export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="$(echo -e ${BCyan})[%d/%m/%Y %H:%M:%S]$(echo -e ${NC}) "
 export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
-export PATH="$PATH:/usr/sbin:"
+export PATH="$PATH:/usr/sbin:/opt/cmake/cmake-3.3.2-Linux-x86_64/bin/"
 
 #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #envoy -a ~/.ssh/id_rsa_tools
