@@ -1,0 +1,72 @@
+#
+#
+
+use_xft yes
+xftfont verdana:size=10
+alignment top_right
+xftalpha 0.30
+update_interval 5 # Update interval in seconds
+cpu_avg_samples 2
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+# Minimum dimensions
+minimum_size 300 1520
+border_inner_margin 6
+#border_outer_margin 4
+border_width 5
+gap_x 20
+gap_y 5
+default_shade_color grey
+default_outline_color white
+default_color BADCDD
+use_spacer none
+no_buffers yes
+uppercase no
+color0 FFA500 #icon
+color1 B0B05F #text
+color2 FFFFFF #title
+color3 AF00AF 
+color4 1F1F1F
+color5 AFA5A0
+
+# For Debian enter this 'ls /proc/acpi/battery' to see what your Battery is named
+# For the upload/download stuff check to see how your internet is connected, it may not be wlan0 for wireless
+# City code is taken from NOAA Weather website, its free and four letters long. Example - Vancouver, Canada is 'CYVR'
+
+Text
+${font weather:size=90}${execpi 600 python ~/.conky_scripts/weathericon.py KLGU}  #This is those little cloud icons
+${font weather:size=60}${execpi 600 python ~/.conky_scripts/thermostaticon.py KLGU}  #This is the temp icon
+
+${font size=12}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KLGU temperature}°C #Temp
+${font size=12}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KLGU cloud_cover}   #Clouds
+
+${color1}Kernel   $alignr$kernel $machine${color}
+${color1}Uptime   $alignr$uptime${color}
+${color1}CPU $alignr${cpu}%${color}
+${color3}${cpugraph 20,(${maximum_width}-15) 474747 E9E9E9}${color}
+${color1}RAM   $memperc%  $alignr$mem / $memmax${color}
+${color3}${membar 4,$maximum_width-15}${color}
+${color1}SWAP   $swapperc%  $alignr$swap / $swapmax${color}
+${color3}${swapbar 4,$maximum_width-15}${color}
+${color1}Disk IO $alignr$diskio${color}
+${color3}${diskiograph 4,($maximum_width-15)}${color}
+${color1}Up ${upspeed eth1}k/s $alignr Total ${totalup etho}${color}
+${color3}${upspeedgraph eth0 4,($maximum_width-15) 474747 E9E9E9}${color}
+${color1}Down ${downspeed etho}k/s $alignr Total ${totaldown eth0}${color}
+${color3}${downspeedgraph eth0 4,($maximum_width-15) 474747 E9E9E9}${color}
+${color1}Local IP $alignr${addr eth0}${color}
+${color1}External IP $alignr${execpi 3600 ~/.scripts/ip.sh}${color}
+
+${color1}NAME $alignr PID   CPU   MEM
+${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1}
+${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2}
+${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3}
+${top name 4} $alignr ${top pid 4} ${top cpu 4} ${top mem 4}
+${top name 5} $alignr ${top pid 5} ${top cpu 5} ${top mem 5}${color}
+

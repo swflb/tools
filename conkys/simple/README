@@ -1,0 +1,46 @@
+Simple Conky - Gmail,Weather and Beauty for Ubuntu
+Original Author- http://www.quicktweaks.com/2008/09/27/gmail-weather-beauty-right-on-your-ubuntu-desktop/#idc-cover
+
+Author of this: Areux
+Date: April 20, 2012
+
+Also, I use Linux Mint. Which is Debian based like Ubuntu so this Conky Script is O.K for both
+
+#CTRL-H to see hidden files or 'ls -a' in terminal to see them
+
+# First, if you haven't already done so install conky
+#     'sudo apt-get install conky'
+
+#Now install all the fonts this conky script uses
+#They are in the conkyfonts folder
+
+# To monitor your HDD and CPU you'll need to run
+#     'sudo apt-get install hddtemp'
+#     'sudo apt-get install lm-sensors'       ...without the quotations obviously 
+
+# Also, if you dont have python you will need a parser
+#      'sudo apt-get install python-feedparser'
+# but honestly, just install python, it is fantastic
+
+# Now, this file ('.conkyrc') goes in your home directory. Its hidden so CTRL-H to see it. The (.) in .conkyrc hides it
+# So it's path should look like this '~/.conkyrc'
+# Then, the whole folder '.conky_scripts' also goes in the home folder
+# It's path should be '~/.conky_scripts'  as you can see it is also hidden. No ugly clutter.
+# Now, go into startup menu and add the conky.sh to the applications. This will start it up when you login.
+# There is a sleep command in it so that it initializes after your desktop. So it shows up.
+# Adjust this depending on how fast your computer starts up
+
+# Because every one has different screen sizes and resolution you will have to play around
+# with the positioning and everything. Hopefully this info is easy to understand
+
+# Also, the python scripts weathericon.py and thermostaticon.py are really just a hack job, I didn't bother to 
+# scope out all the different sorts of cloud cover so you may have to add in some types
+# also also, it features cloud cover not weather... which is odd. Will have to fix that in the future
+
+# Some useful commands
+# 'conky &' runs conky, which runs '~/.conkyrc' each time you run it instances will appear (they stack on top of eachother)
+# 'conky -c conkyrcsomething' runs a specific conky script, useful for multiple conky instances
+# 'killall conky' does as it indicates, it stops all instances of conky
+
+
+
