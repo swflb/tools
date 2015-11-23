@@ -36,8 +36,9 @@ cd "${idir}"
 #wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.16.tar.gz
 #tar -xvzf hdf5-1.8.16.tar.gz
 cd hdf5*
-sudo mkdir /opt/hdf5
-sudo cp -r ./* /opt/hdf5/
+./configure --prefix=/opt/hdf5
+make
+sudo make install
 ######################################
 # ## protobuf 3
 cd "${idir}"

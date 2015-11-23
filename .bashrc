@@ -20,7 +20,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 #export PS1='\w$(__git_ps1 " (%s)")\$ '
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
 export HDF5_ROOT='/opt/hdf5/'
-export LD_LIBRARY_PATH="/usr/lib64:${LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH="/usr/lib:/usr/lib64:${LD_LIBRARY_PATH}"
 
 #--------------------------------------------------------------
 #  Automatic setting of $DISPLAY (if not set already).
