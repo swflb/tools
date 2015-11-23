@@ -9,8 +9,8 @@ rm ~/dev/Vantage/.git/hooks/pre-commit
 
 cd ~
 echo "link to gcc copying files"
-ln -s dev/tools/toGcc52 toGcc52
-ln -s dev/tools/toGcc49 toGcc49
+#ln -s dev/tools/toGcc52 toGcc52
+#ln -s dev/tools/toGcc49 toGcc49
 echo "setup link to .bashrc"
 ln -s dev/tools/.bashrc .bashrc
 echo "setup link to .conkyrc"
@@ -18,10 +18,9 @@ ln -s dev/tools/.conkyrc .conkyrc
 echo "setup link to .vimrc"
 ln -s dev/tools/.vimrc .vimrc
 
-echo "setup link to pre-commit hook in Vantage repo"
-cd ~/dev/Vantage/.git/hooks
-
-ln -s ~/dev/tools/pre-commit pre-commit
+#echo "setup link to pre-commit hook in Vantage repo"
+#cd ~/dev/Vantage/.git/hooks
+#ln -s ~/dev/tools/pre-commit pre-commit
 
 ln -s ~/dev/tools/git-completion.bash git-completion.bash
 echo "linked tools to locations"
