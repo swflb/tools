@@ -61,39 +61,39 @@ color8 FFFFFF
 
 TEXT
 # Various images #
-${execi 300 wget "http://weather.yahooapis.com/forecastrss?w=12794205&u=c" --output-document=~/.cache/weather.xml}
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/top-bg.png -p 20,30 -s 228x61}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bottom-bg.png -p 20,492 -s 228x99}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-1.png -p 20,177 -s 228x86}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-2.png -p 20,263 -s 228x105}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-3.png -p 20,368 -s 228x110}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-4.png -p 20,478 -s 228x14}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-5.png -p 20,476 -s 228x18}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-6.png -p 20,91 -s 228x86}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/fav-color.png -p 20,91 -s 228x86}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-h.png -p 21,369 -s 226x2}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-h.png -p 21,269 -s 226x2}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-v.png -p 95,176 -s 2x94}\
-${image ~/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-v.png -p 172,176 -s 2x94}\
+${execi 300 wget "http://weather.yahooapis.com/forecastrss?w=12794205&u=c" --output-document=${HOME}/.cache/weather.xml}
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/top-bg.png -p 20,30 -s 228x61}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bottom-bg.png -p 20,492 -s 228x99}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-1.png -p 20,177 -s 228x86}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-2.png -p 20,263 -s 228x105}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-3.png -p 20,368 -s 228x110}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-4.png -p 20,478 -s 228x14}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-5.png -p 20,476 -s 228x18}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/bg-6.png -p 20,91 -s 228x86}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/fav-color.png -p 20,91 -s 228x86}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-h.png -p 21,369 -s 226x2}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-h.png -p 21,269 -s 226x2}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-v.png -p 95,176 -s 2x94}\
+${image ${HOME}/.harmattan-assets/misc/Ubuntu-Touch/God-Mode/separator-v.png -p 172,176 -s 2x94}\
 \
 # The days of the forecast #
 \
-${color3}${voffset 172}${alignc 77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1' | tr '[a-z]' '[A-Z]'}${color}
-${color3}${voffset -13}${alignc}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2' | tr '[a-z]' '[A-Z]'}${color}
-${color3}${voffset -13}${alignc -77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3' | tr '[a-z]' '[A-Z]'}${color}
+${color3}${voffset 172}${alignc 77}${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1' | tr '[a-z]' '[A-Z]'}${color}
+${color3}${voffset -13}${alignc}${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2' | tr '[a-z]' '[A-Z]'}${color}
+${color3}${voffset -13}${alignc -77}${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3' | tr '[a-z]' '[A-Z]'}${color}
 \
 # The temperatures of the forecast #
 \
-${color2}${voffset 51}${alignc 77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°/${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${color}
-${color2}${voffset -13}${alignc}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°/${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${color}
-${color2}${voffset -13}${alignc -77}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°/${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°${color}
+${color2}${voffset 51}${alignc 77}${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°/${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${color}
+${color2}${voffset -13}${alignc}${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°/${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${color}
+${color2}${voffset -13}${alignc -77}${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°/${execi 300 grep "yweather:forecast" ${HOME}/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==3'}°${color}
 \
 # The "conditions" section of the conky #
 \
-${goto 36}${voffset -172}${font Droid Sans :size=36}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${color}
-${goto 46}${voffset 14}${font Droid Sans :size=12}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}${color}
-${color1}${alignr 52}${voffset -73}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
-${color1}${alignr 52}${voffset 7}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} %${color}
+${goto 36}${voffset -172}${font Droid Sans :size=36}${color1}${execi 300 grep "yweather:condition" ${HOME}/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${color}
+${goto 46}${voffset 14}${font Droid Sans :size=12}${color1}${execi 300 grep "yweather:condition" ${HOME}/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}${color}
+${color1}${alignr 52}${voffset -73}${execi 300 grep "yweather:atmosphere" ${HOME}/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ${HOME}/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+${color1}${alignr 52}${voffset 7}${execi 300 grep "yweather:atmosphere" ${HOME}/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} %${color}
 ${color1}${alignr 52}${voffset 7}${execi 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${color}
 \
 # Clock + calendar #

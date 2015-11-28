@@ -33,12 +33,12 @@ sudo make install
 ######################################
 # ##hdf5
 cd "${idir}"
-#wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.16.tar.gz
-#tar -xvzf hdf5-1.8.16.tar.gz
-cd hdf5*
-./configure --prefix=/opt/hdf5
-make
-sudo make install
+wget http://www.hdfgroup.org/ftp/HDF5/current/bin/linux-centos7-x86_64-gcc483/hdf5-1.8.16-linux-centos7-x86_64-gcc483-shared.tar.gz
+tar -xvzf hdf5-1.8.16-linux-centos7-x86_64-gcc483-shared.tar.gz
+cd hdf5-1.8.16*
+sudo rm -rf /opt/hdf5
+sudo mkdir /opt/hdf5
+sudo cp -r ./* /opt/hdf5
 ######################################
 # ## protobuf 3
 cd "${idir}"
