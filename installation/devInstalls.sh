@@ -20,7 +20,7 @@ sudo make install
 cd "${idir}"
 #wget http://download.qt.io/official_releases/qt/5.5/5.5.1/qt-opensource-linux-x64-5.5.1.run
 chmod +x ./qt-opensource-linux-x64-5.5.1.run
-sudo ./qt-opensource-linux-x64-5.5.1.run
+./qt-opensource-linux-x64-5.5.1.run
 sudo cp "${HOME}/dev/tools/installation/qt.sh" /etc/profile.d/
 ######################################
 ##GLEW
@@ -33,21 +33,12 @@ sudo make install
 ######################################
 # ##hdf5
 cd "${idir}"
-wget http://www.hdfgroup.org/ftp/HDF5/current/bin/linux-centos7-x86_64-gcc483/hdf5-1.8.16-linux-centos7-x86_64-gcc483-shared.tar.gz
+#wget http://www.hdfgroup.org/ftp/HDF5/current/bin/linux-centos7-x86_64-gcc483/hdf5-1.8.16-linux-centos7-x86_64-gcc483-shared.tar.gz
 tar -xvzf hdf5-1.8.16-linux-centos7-x86_64-gcc483-shared.tar.gz
 cd hdf5-1.8.16*
 sudo rm -rf /opt/hdf5
 sudo mkdir /opt/hdf5
 sudo cp -r ./* /opt/hdf5
-######################################
-# ## protobuf 3
-cd "${idir}"
-#git clone -b protoc-alpha-3.1 --recurse-submodules https://github.com/google/protobuf.git
-cd protobuf
-./autogen.sh
-./configure
-./make -j6
-sudo make install
 ######################################
 # ## externpro
 #sudo mkdir /opt/externpro
@@ -58,8 +49,8 @@ sudo make install
 ######################################
 ## zookeep
 cd "${idir}"
-#wget http://apache.cs.utah.edu/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
-#tar -xvzf zookeeper-3.4.6.tar.gz
+#wget http://apache.cs.utah.edu/zookeeper/zookeeper-3.4.7/zookeeper-3.4.7.tar.gz
+#tar -xvzf zookeeper-3.4.7.tar.gz
 cd zookeep*
 cd src/c
 ./configure
@@ -69,6 +60,7 @@ sudo make install
 # ## lirbkafka
 cd "${idir}"
 #git clone https://github.com/edenhill/librdkafka.git
+git checkout 0.9.0
 cd librdkafka
 ./configure
 make
