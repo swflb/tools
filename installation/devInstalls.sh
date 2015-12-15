@@ -12,7 +12,7 @@ cd "${idir}"
 #wget https://cmake.org/files/v3.4/cmake-3.4.0.tar.gz
 #tar -xvzf cmake-3.4.0.tar.gz
 cd cmake*
-./configure
+./bootstrap
 make -j6
 sudo make install
 ######################################
