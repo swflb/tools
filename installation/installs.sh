@@ -1,4 +1,4 @@
-apt-get install git mercurial giggle gcc gcc-4.9 g++-4.9 gdb imagemagick gimp nitrogen compizconfig-settings-manager Logisim texmaker texstudio guake conky-all vim nano wget elinks plantuml postgresql-9.4 mlocate dstat nmap autoconf libtool libgtkgl2.0-dev  libgl1-mesa-dev libglu1-mesa-dev lcov gcovr cppcheck chromium-browser gksu lib32ncurses5-dev ncurses-base
+apt-get install git mercurial giggle gcc gcc-4.9 g++-4.9 gdb imagemagick gimp nitrogen compizconfig-settings-manager Logisim texmaker texstudio guake conky-all vim nano wget elinks plantuml postgresql-9.4 mlocate dstat nmap autoconf libtool libgtkgl2.0-dev  libgl1-mesa-dev libglu1-mesa-dev lcov gcovr clang-format-3.7 cppcheck chromium-browser gksu lib32ncurses5-dev ncurses-base
 
 # virtualbox opera spotify-client
 # my-weather-indicator

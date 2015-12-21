@@ -18,6 +18,8 @@ ln -s dev/tools/.conkyrc .conkyrc
 echo "setup link to .vimrc"
 ln -s dev/tools/.vimrc .vimrc
 
+ln -s /usr/bin/clang-format-3.7 /usr/bin/clang-format
+
 #echo "setup link to pre-commit hook in Vantage repo"
 #cd ~/dev/Vantage/.git/hooks
 #ln -s ~/dev/tools/pre-commit pre-commit
