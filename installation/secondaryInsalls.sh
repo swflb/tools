@@ -1,4 +1,4 @@
-## do wanted installs 
+## do wanted installs
 #
 # @TODO add error checking
 # @TODO add method to get user specified versions
@@ -14,19 +14,19 @@ mkdir "${idir}"
 
 ## sublime text3
 cd ${install_dir}
-#wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb
+wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb
 sudo dpkg -i ./sublime-text_*
 wget https://packagecontrol.io/Package%20Control.sublime-package
 sudo cp ./Package*sublime* /opt/sublime_text/Packages/
 
 ## atom editor
 cd ${install_dir}
-#wget https://github.com/atom/atom/releases/download/v1.2.3/atom-amd64.deb
+wget https://github.com/atom/atom/releases/download/v1.2.3/atom-amd64.deb
 sudo dpkg -i ./atom-amd*
 
 ### spideroak
 cd ${install_dir}
-#wget -O spideroakone.deb https://spideroak.com/getbuild?platform=ubuntu&arch=x86_64
+wget -O spideroakone.deb https://spideroak.com/getbuild?platform=ubuntu&arch=x86_64
 sudo dpkg -i ./spideroak*
 
 ## speedcrunch

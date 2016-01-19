@@ -23,3 +23,7 @@ sudo update-alternatives --set gcc "/usr/bin/gcc-4.9"
 sudo update-alternatives --set g++ "/usr/bin/g++-4.9"
 sudo update-alternatives --set cpp "/usr/bin/cpp-4.9"
 
+### list all manually configured alternatives:
+# for i in /etc/alternatives/*; do 
+#  LANG=C update-alternatives --display "${i#/etc/alternatives/}"
+# done 2>/dev/null | awk '/manual.mode/{print $1}'
