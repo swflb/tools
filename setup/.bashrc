@@ -94,7 +94,7 @@ export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="$(echo -e ${BCyan})[%d/%m/%Y %H:%M:%S]$(echo -e ${NC}) "
 export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
-export PATH="$PATH:/usr/sbin:/opt/cmake/cmake-3.3.2-Linux-x86_64/bin/"
+export PATH="$PATH:/usr/sbin:/opt/cmake/cmake-3.3.2-Linux-x86_64/bin/:/usr/share/atom/"
 
 #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #envoy -a ~/.ssh/id_rsa_tools

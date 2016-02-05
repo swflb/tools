@@ -29,6 +29,11 @@ cd ${install_dir}
 wget -O spideroakone.deb https://spideroak.com/getbuild?platform=ubuntu&arch=x86_64
 sudo dpkg -i ./spideroak*
 
+### spotify client
+cd ${install_dir}
+wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.19.106.gb8a7150f_amd64.deb
+sudo dpkg -i spotify-client_1.0.19.106.gb8a7150f_amd64.deb
+
 ## speedcrunch
 cd ${install_dir}
 git clone --recurse-submodules https://sethdh@bitbucket.org/sethdh/speedcrunch.git

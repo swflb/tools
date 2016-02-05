@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for cfile in `find . -name "*.[c|h]pp" |grep -v build`; do
+  clang-format -i -style=file $cfile
+done
