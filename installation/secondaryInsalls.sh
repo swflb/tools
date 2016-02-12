@@ -26,7 +26,7 @@ sudo dpkg -i ./atom-amd*
 
 ### spideroak
 cd ${install_dir}
-wget -O spideroakone.deb https://spideroak.com/getbuild?platform=ubuntu&arch=x86_64
+wget -O spideroakone.deb https://spideroak.com/getbuild?platform=ubuntu&arch=x86cmake_64
 sudo dpkg -i ./spideroak*
 
 ### spotify client
