@@ -68,6 +68,7 @@ export DISPLAY
 #set -o nounset     # These  two options are useful for debugging.
 #set -o xtrace
 alias debug="set -o nounset; set -o xtrace"
+alias speak="espeak -a 180 -p 80 -v other/en-rp -f ~/.done.txt"
 
 ulimit -S -c 0      # Don't want coredumps.
 set -o notify
