@@ -19,7 +19,8 @@ ln -s dev/tools/setup/.conkyrc .conkyrc
 echo "setup link to .vimrc"
 ln -s dev/tools/setup/.vimrc .vimrc
 
-ln -s /usr/bin/clang-format-3.7 /usr/bin/clang-format
+rm /usr/bin/clang-format
+ln -s /opt/externpro/externpro-15.10.2-gcc49-64-Linux/bin/clang-format /usr/bin/clang-format
 ln -s /usr/bin/clang-tidy-3.7 /usr/bin/clang-tidy
 ln -s /usr/bin/clang-check-3.7 /usr/bin/clang-check
 

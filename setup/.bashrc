@@ -68,9 +68,10 @@ export DISPLAY
 #set -o nounset     # These  two options are useful for debugging.
 #set -o xtrace
 alias debug="set -o nounset; set -o xtrace"
-alias speak="espeak -a 180 -p 80 -v other/en-rp -f ~/.done.txt"
-alias mymake="time (make -j6 && speak)"
-alias mymakeall="time (cmake .. && cmake .. && make -j6 && speak)"
+alias speakgood="espeak -a 180 -p 80 -v other/en-rp 'I am done compiling!'"
+alias speakbad="espeak -a 180 -p 80 -v other/en-rp 'Well, That Sucked!'"
+alias mymake="time (make -j6 && speakgood || speakbad)"
+alias mymakeall="time (cmake .. && cmake .. && make -j6 && speakgood || speakbad)"
 
 ulimit -S -c 0      # Don't want coredumps.
 set -o notify
