@@ -4,6 +4,7 @@ myrepo=$1
 echo "removing files from target locations"
 rm ~/.bashrc
 rm ~/.conkyrc
+rm ~/.gitignore
 rm ~/.vimrc
 rm ~/toGcc*
 rm ~/dev/${myrepo}/.git/hooks/pre-commit
@@ -16,6 +17,8 @@ echo "setup link to .bashrc"
 ln -s dev/tools/setup/.bashrc .bashrc
 echo "setup link to .conkyrc"
 ln -s dev/tools/setup/.conkyrc .conkyrc
+echo "setup link to .gitignore"
+ln -s dev/tools/setup/.gitignore gitignore
 echo "setup link to .vimrc"
 ln -s dev/tools/setup/.vimrc .vimrc
 

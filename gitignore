@@ -1,0 +1,8 @@
+# QtCreator file
+*.txt.User
+*.txt.user
+*.gch
+*sublime*
+cscope.out
+*.autosave
+*.VC.db
