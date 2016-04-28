@@ -1,4 +1,6 @@
-sudo update-alternatives --remove-all gcc 
+#!/bin/bash
+
+sudo update-alternatives --remove-all gcc
 sudo update-alternatives --remove-all g++
 sudo update-alternatives --remove-all cpp
 sudo update-alternatives --remove-all cc
@@ -24,6 +26,6 @@ sudo update-alternatives --set g++ "/usr/bin/g++-4.9"
 sudo update-alternatives --set cpp "/usr/bin/cpp-4.9"
 
 ### list all manually configured alternatives:
-# for i in /etc/alternatives/*; do 
+# for i in /etc/alternatives/*; do
 #  LANG=C update-alternatives --display "${i#/etc/alternatives/}"
 # done 2>/dev/null | awk '/manual.mode/{print $1}'

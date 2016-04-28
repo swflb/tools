@@ -61,8 +61,6 @@ fi
 export DISPLAY
 
 
-
-
 #xhost +local:root > /dev/null 2>&1
 
 #set -o nounset     # These  two options are useful for debugging.
@@ -70,8 +68,12 @@ export DISPLAY
 alias debug="set -o nounset; set -o xtrace"
 alias speakgood="espeak -a 180 -p 80 -v other/en-rp 'I am done compiling!'"
 alias speakbad="espeak -a 180 -p 80 -v other/en-rp 'Well, That Sucked!'"
-alias mymake="time (make -j6 && speakgood || speakbad)"
 alias mymakeall="time (cmake .. && cmake .. && make -j6 && speakgood || speakbad)"
+
+function mymake ()
+{
+  time (make -j6 $1 && speakgood || speakbad)
+}
 
 ulimit -S -c 0      # Don't want coredumps.
 set -o notify
