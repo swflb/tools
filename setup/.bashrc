@@ -70,9 +70,39 @@ alias speakgood="espeak -a 180 -p 80 -v other/en-rp 'I am done compiling!'"
 alias speakbad="espeak -a 180 -p 80 -v other/en-rp 'Well, That Sucked!'"
 alias mymakeall="time (cmake .. && cmake .. && make -j6 && speakgood || speakbad)"
 
+function isNum ()
+{
+  re='^[0-9]+$'
+  if ! [[ $1 =~ $re ]] ; then
+    return 1
+  fi
+  return 0
+}
+
 function mymake ()
 {
-  time (make -j6 $1 && speakgood || speakbad)
+  ap="$(nproc)"
+  np=${2:-$ap}
+  buildName=${1}
+  isNum ${1}
+  wasNum=$?
+  isNum ${2}
+  secWasNum=$?
+  if [[ ${secWasNum} -eq 1 ]] && [[ ${wasNum} -eq 1 ]]
+  then
+    np=`expr ${np} - 1`
+    # no argument supplied so subtract from value calculated
+  fi
+
+  if [[ ${wasNum} -eq 0 ]]
+  then
+    np=${1}
+    buildName=""
+    echo "assuming input arg 1 is integer"
+  fi
+
+  echo "actual processors: " ${ap} " using " ${np} " processors. building " ${buildName}
+  time (make -j${np} $1 && speakgood || speakbad)
 }
 
 ulimit -S -c 0      # Don't want coredumps.
