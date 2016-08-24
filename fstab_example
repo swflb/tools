@@ -1,0 +1,9 @@
+# /etc/fstab: static file system information.
+#
+# mount tmp into RAM
+tmpfs /tmp tmpfs defaults,noatime,nosuid,nodev,noexec,size=4G,mode=1777 0 0
+# tmpfs /home/user/build/mdpbuild tmpfs defaults,size=6G,noatime,uid=user,gid=users,nosuid,nodev,mode=1754 0 0
+# tmpfs /home/user/build/secondbuild tmpfs defaults,size=6G,noatime,uid=user,gid=users,nosuid,nodev,mode=1754 0 0
+# mount storage partition
+#/dev/sdb1	/mnt/storage	ext4 defaults,mode=1777 0 0
+

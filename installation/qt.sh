@@ -1,7 +1,7 @@
 #!/bin/bash
 if [[ -z "${QTDIR}" ]]
 then
-	QTPREFIXES="/usr/lib64/qt/5.5/gcc\_64"
+	QTPREFIXES="/usr/lib64/qt/5.7/gcc\_64"
 
 	for QTDIR in ${QTPREFIXES}
 	do

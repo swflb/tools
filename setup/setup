@@ -11,25 +11,25 @@ rm ~/dev/${myrepo}/.git/hooks/pre-commit
 
 cd ~
 echo "link to gcc copying files"
-#ln -s dev/tools/setup/toGcc52 toGcc52
-#ln -s dev/tools/setup/toGcc49 toGcc49
+#ln -sfn dev/tools/setup/toGcc52 toGcc52
+#ln -sfn dev/tools/setup/toGcc49 toGcc49
 echo "setup link to .bashrc"
-ln -s dev/tools/setup/.bashrc .bashrc
+ln -sfn dev/tools/setup/.bashrc .bashrc
 echo "setup link to .conkyrc"
-ln -s dev/tools/setup/.conkyrc .conkyrc
+ln -sfn dev/tools/setup/.conkyrc .conkyrc
 echo "setup link to .gitignore"
-ln -s dev/tools/setup/.gitignore gitignore
+ln -sfn dev/tools/setup/.gitignore .gitignore
 echo "setup link to .vimrc"
-ln -s dev/tools/setup/.vimrc .vimrc
+ln -sfn dev/tools/setup/.vimrc .vimrc
 
 rm /usr/bin/clang-format
-ln -s /opt/externpro/externpro-15.10.2-gcc49-64-Linux/bin/clang-format /usr/bin/clang-format
-ln -s /usr/bin/clang-tidy-3.7 /usr/bin/clang-tidy
-ln -s /usr/bin/clang-check-3.7 /usr/bin/clang-check
+ln -sfn /opt/externpro/externpro-15.10.2-gcc49-64-Linux/bin/clang-format /usr/bin/clang-format
+ln -sfn /usr/bin/clang-tidy-3.7 /usr/bin/clang-tidy
+ln -sfn /usr/bin/clang-check-3.7 /usr/bin/clang-check
 
 #echo "setup link to pre-commit hook in repo"
 #cd ~/dev/${myrepo}/.git/hooks
-#ln -s ~/dev/tools/setup/pre-commit pre-commit
+#ln -sfn ~/dev/tools/setup/pre-commit pre-commit
 
-ln -s ~/dev/tools/setup/git-completion.bash git-completion.bash
+ln -sfn ~/dev/tools/setup/git-completion.bash git-completion.bash
 echo "linked tools to locations"
