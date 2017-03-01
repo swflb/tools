@@ -18,7 +18,8 @@ ln -sfn dev/tools/setup/.bashrc .bashrc
 echo "setup link to .conkyrc"
 ln -sfn dev/tools/setup/.conkyrc .conkyrc
 echo "setup link to .gitignore"
-ln -sfn dev/tools/setup/.gitignore .gitignore
+ln -sfn dev/tools/gitignore gitignore
+git config --global core.excludesfile ~/gitignore
 echo "setup link to .vimrc"
 ln -sfn dev/tools/setup/.vimrc .vimrc
 

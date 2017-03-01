@@ -6,3 +6,6 @@
 cscope.out
 *.autosave
 *.VC.db
+*.sh~
+*.vscode*
+
