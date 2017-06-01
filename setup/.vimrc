@@ -26,7 +26,7 @@ set number
 set hlsearch "highlight search results
 set incsearch "incremental search as you type
 set ic! "ignore case for searching
-set smartcase "ingores case until capital is used in search
+set smartcase "ignores case until capital is used in search
 set autoindent
 set ruler "show ruler
 set ff=unix
@@ -60,7 +60,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fold and Completion Settings
 set foldenable
-set foldlevelstart=0
+set foldlevelstart=4
 set foldopen=block,hor,jump,mark,percent,quickfix,search,tag,undo
 
 " Make omnicompletion sane.
