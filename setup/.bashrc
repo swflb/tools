@@ -16,6 +16,7 @@ if [ -f ~/git-completion.bash ]; then
       . ~/git-completion.bash
 fi
 
+export EDITOR=vim
 export GIT_PS1_SHOWDIRTYSTATE=1
 #export PS1='\w$(__git_ps1 " (%s)")\$ '
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
@@ -81,6 +82,7 @@ function isNum ()
 
 function mymake ()
 {
+  reset
   ap="$(nproc)"
   np=${2:-$ap}
   buildName=${1}
