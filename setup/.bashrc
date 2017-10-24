@@ -21,7 +21,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 #export PS1='\w$(__git_ps1 " (%s)")\$ '
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
 #export HDF5_ROOT='/opt/hdf5/'
-export LD_LIBRARY_PATH="/usr/lib:/usr/lib64:${LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/lib:/usr/lib64:/opt/ovsrpro/ovsrpro/qt5/lib:/opt/ovsrpro/ovsrpro/lib"
 
 #--------------------------------------------------------------
 #  Automatic setting of $DISPLAY (if not set already).
@@ -69,7 +69,7 @@ export DISPLAY
 alias debug="set -o nounset; set -o xtrace"
 alias speakgood="espeak -a 180 -p 80 -v other/en-rp 'I am done compiling!'"
 alias speakbad="espeak -a 180 -p 80 -v other/en-rp 'Well, That Sucked!'"
-alias mymakeall="time (cmake .. && cmake .. && make -j6 && speakgood || speakbad)"
+alias mymakeall="time (make -j6 && speakgood || speakbad)"
 
 function isNum ()
 {

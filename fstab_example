@@ -7,3 +7,5 @@ tmpfs /tmp tmpfs defaults,noatime,nosuid,nodev,noexec,size=4G,mode=1777 0 0
 # mount storage partition
 #/dev/sdb1	/mnt/storage	ext4 defaults,mode=1777 0 0
 
+tmpfs /home/shumphries/build/mdpbuild tmpfs size=12G,noatime,uid=shumphries,gid=users,nosuid,nodev,mode=1754 0 0
+tmpfs /home/shumphries/build/secondbuild tmpfs size=6G,noatime,uid=shumphries,gid=users,nosuid,nodev,mode=1754 0 0
