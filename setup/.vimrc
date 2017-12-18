@@ -16,23 +16,26 @@ syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab "turn tabs to spaces
-set cindent
+" set cindent
 set title
 set showtabline=2
 set background=dark
 set autochdir
-set smarttab
+" set smarttab
 set number
 set hlsearch "highlight search results
 set incsearch "incremental search as you type
 set ic! "ignore case for searching
 set smartcase "ignores case until capital is used in search
-set autoindent
+" set autoindent
 set ruler "show ruler
-set ff=unix
+set ff=unix " unix line endings
+set cursorline " highlight current line
+set wildmenu "show wildcard menu for tab completes
+set showmatch "show orhighlight matching brackets
 
 filetype plugin on "" if you want to load plugins
-filetype indent on "" if you want autoindent to be on
+filetype indent off "" if you want autoindent to be on
 
 set spell
 set spelllang=en_us
@@ -46,8 +49,14 @@ match OverLength /\%81v.\+/
 "map <C-s> :w<cr>
 "imap <C-s> <ESC>:w<CR>a
 
-"map <C-K> :pyf /usr/local/share/clang/clang-format.py<CR>
-"imap <C-K> <ESC>:pyf /usr/local/share/clang/clang-format.py<CR>i
+map <C-K> :pyf /opt/externpro/externpro-17.05.1-gcc621-64-Linux/share/clang/clang-format.py<CR>
+imap <C-K> <c-o>:pyf /opt/externpro/externpro-17.05.1-gcc621-64-Linux/share/clang/clang-format.py<CR>
+
+function! Formatonsave()
+    let l:formatdiff = 1
+      pyf /opt/externpro/externpro-17.05.1-gcc621-64-Linux/share/clang/clang-format.py
+endfunction
+autocmd BufWritePre *.h,*.c,*.cpp,*.hpp call Formatonsave()
 
 "" strip trailing white space on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -60,7 +69,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fold and Completion Settings
 set foldenable
-set foldlevelstart=4
+set foldlevelstart=8
 set foldopen=block,hor,jump,mark,percent,quickfix,search,tag,undo
 
 " Make omnicompletion sane.
@@ -98,17 +107,24 @@ autocmd BufNewFile *.py .! cat ~/.vim/skel.py
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " C/C++
 autocmd FileType cpp setlocal cindent
-autocmd FileType cpp setlocal foldmethod=syntax foldlevel=1
+autocmd FileType cpp setlocal foldmethod=syntax foldlevel=7
+autocmd FileType c,cpp let b:comment_leader = '// '
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim
+autocmd FileType vim let b:comment_leader = '" '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shell Scripts
 " informs sh syntax that /bin/sh is actually bash
 let is_bash=1
+autocmd FileType sh,python,ruby let b:comment_leader = '# '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TeX/LaTeX
 " Disable annoying bad automatic indentation.
 autocmd FileType tex setlocal indentexpr=
+autocmd FileType tax let b:comment_leader = '% '
 
 " vim: ts=8
 
@@ -128,4 +144,6 @@ if has('cscope')
   command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
 endif
 
-
+" set ,cc to comment the current line and ,cu to un comment per language
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
