@@ -83,6 +83,7 @@ function isNum ()
 function mymake ()
 {
   reset
+  rm -rf ./makeout.log
   ap="$(nproc)"
   np=${2:-$ap}
   buildName=${1}
@@ -104,7 +105,7 @@ function mymake ()
   fi
 
   echo "actual processors: " ${ap} " using " ${np} " processors. building " ${buildName}
-  time (make -j${np} $1 && speakgood || speakbad)
+  time (make -j${np} $1 2>&1 | tee ./makeout.log && speakgood || speakbad)
 }
 
 ulimit -S -c 0      # Don't want coredumps.
