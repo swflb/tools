@@ -49,12 +49,12 @@ match OverLength /\%81v.\+/
 "map <C-s> :w<cr>
 "imap <C-s> <ESC>:w<CR>a
 
-map <C-K> :pyf /opt/externpro/externpro-17.05.1-gcc621-64-Linux/share/clang/clang-format.py<CR>
-imap <C-K> <c-o>:pyf /opt/externpro/externpro-17.05.1-gcc621-64-Linux/share/clang/clang-format.py<CR>
+map <C-I> :py3f /opt/extern/externpro-t18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
+imap <C-I> <c-o>:py3f /opt/extern/externpro-t18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
 
 function! Formatonsave()
     let l:formatdiff = 1
-      pyf /opt/externpro/externpro-17.05.1-gcc621-64-Linux/share/clang/clang-format.py
+      py3f /opt/extern/externpro-t18.04.1-gcc730-64-Linux/share/clang/clang-format.py
 endfunction
 autocmd BufWritePre *.h,*.c,*.cpp,*.hpp call Formatonsave()
 
@@ -147,3 +147,4 @@ endif
 " set ,cc to comment the current line and ,cu to un comment per language
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
