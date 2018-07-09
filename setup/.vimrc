@@ -49,12 +49,13 @@ match OverLength /\%81v.\+/
 "map <C-s> :w<cr>
 "imap <C-s> <ESC>:w<CR>a
 
-map <C-I> :py3f /opt/extern/externpro-t18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
-imap <C-I> <c-o>:py3f /opt/extern/externpro-t18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
+map <C-I> :py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
+imap <C-I> <c-o>:py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
 
 function! Formatonsave()
-    let l:formatdiff = 1
-      py3f /opt/extern/externpro-t18.04.1-gcc730-64-Linux/share/clang/clang-format.py
+    "let l:formatdiff = 1
+    let l:lines="all"
+    py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py
 endfunction
 autocmd BufWritePre *.h,*.c,*.cpp,*.hpp call Formatonsave()
 

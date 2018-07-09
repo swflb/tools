@@ -67,8 +67,8 @@ export DISPLAY
 #set -o nounset     # These  two options are useful for debugging.
 #set -o xtrace
 alias debug="set -o nounset; set -o xtrace"
-alias speakgood="espeak -a 180 -p 80 -v other/en-rp 'I am done compiling!'"
-alias speakbad="espeak -a 180 -p 80 -v other/en-rp 'Well, That Sucked!'"
+alias speakgood="espeak -a 120 -p 80 -ven-wi 'I am done compiling!'"
+alias speakbad="espeak -a 180 -v en-sc+f2 'Well, That was Terrible!'"
 alias mymakeall="time (make -j6 && speakgood || speakbad)"
 
 function isNum ()
@@ -130,7 +130,7 @@ shopt -s hostcomplete
 export HISTSIZE=30000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoredups
-export HISTTIMEFORMAT="$(echo -e ${BCyan})[%d/%m/%Y %H:%M:%S]$(echo -e ${NC}) "
+export HISTTIMEFORMAT="$(echo -e ${BCyan})[%Y/%b/%d %H:%M:%S]$(echo -e ${NC}) "
 export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
 export PATH="$PATH:/usr/sbin:/usr/share/atom/:~/.local/bin/"
@@ -301,9 +301,9 @@ esac
 
 
 ################ Personnal Aliases
-alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ls='ls --group-directories-first --time-style=+"%Y.%b.%d %H:%M" --color=auto -F'
+alias ll='ls -l --group-directories-first --time-style=+"%Y.%b.%d %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%Y.%b.%d %H:%M" --color=auto -F'
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
 alias grep='grep --color=tty -d skip'
@@ -311,10 +311,10 @@ alias cp="cp -i"                          # confirm before overwriting something
 alias mv='mv -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
-alias df='df -h'                          # human-readable sizes
+#alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano PKGBUILD'
-alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && sudo pacman -Suu'
+#alias fixit='sudo rm -f /var/lib/pacman/db.lck && sudo pacman-mirrors -g && sudo pacman -Syyuu  && sudo pacman -Suu'
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
 
