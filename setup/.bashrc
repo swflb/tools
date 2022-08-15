@@ -385,3 +385,9 @@ function extract()
     echo "'$1' is not a valid file"
   fi
 }
+
+ringtone() {
+    ffmpeg -i "$1" -c:a aac -b:a 192k temp_ringtone.m4a
+    mv temp_ringtone.m4a "${1%.mp3}.m4r"
+}
+
