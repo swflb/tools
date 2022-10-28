@@ -1,13 +1,14 @@
-" helps """"""""""""""""""""""""
+" hints """"""""""""""""""""""""
 " "u = undo, ctrl-r is redo
 " "completion ctrl-p and -n for previous and next
 " "y is yank (copy), yy is entire line
-" "p is paste
+" "p is put equivalent of paste
 " "/ forward search
 " "? backward search
 " "A jump to end and "append"
 " "w jump to next word, W is with ignore punctuation
 " "$ jump to end of line
+" "^ jump to start of line
 " " . is replay
 " " cw is change word and insert
 "
@@ -22,7 +23,7 @@ set showtabline=2
 set background=dark
 set autochdir
 " set smarttab
-set number
+set number "turn on line numbers
 set hlsearch "highlight search results
 set incsearch "incremental search as you type
 set ic! "ignore case for searching
@@ -32,7 +33,7 @@ set ruler "show ruler
 set ff=unix " unix line endings
 set cursorline " highlight current line
 set wildmenu "show wildcard menu for tab completes
-set showmatch "show orhighlight matching brackets
+set showmatch "show or highlight matching brackets
 
 filetype plugin on "" if you want to load plugins
 filetype indent off "" if you want autoindent to be on
