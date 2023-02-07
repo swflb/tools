@@ -17,7 +17,6 @@ syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab "turn tabs to spaces
-" set cindent
 set title
 set showtabline=2
 set background=dark
@@ -44,28 +43,28 @@ highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 
 highlight OverLength term=standout term=underline cterm=underline
-match OverLength /\%81v.\+/
+match OverLength /\%121v.\+/
 
 "map <F4> :sp %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
 "map <C-s> :w<cr>
 "imap <C-s> <ESC>:w<CR>a
 
-map <C-I> :py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
-imap <C-I> <c-o>:py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
+"map <C-I> :py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
+"imap <C-I> <c-o>:py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py<CR>
 
 function! Formatonsave()
     "let l:formatdiff = 1
     let l:lines="all"
     py3f /opt/extern/externpro-18.04.1-gcc730-64-Linux/share/clang/clang-format.py
 endfunction
-autocmd BufWritePre *.h,*.c,*.cpp,*.hpp call Formatonsave()
+"autocmd BufWritePre *.h,*.c,*.cpp,*.hpp call Formatonsave()
 
 "" strip trailing white space on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('+colorcolumn')
-    set colorcolumn=81
+    set colorcolumn=121
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -108,8 +107,8 @@ autocmd BufNewFile *.py .! cat ~/.vim/skel.py
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " C/C++
-autocmd FileType cpp setlocal cindent
-autocmd FileType cpp setlocal foldmethod=syntax foldlevel=7
+autocmd FileType cpp,h,hpp setlocal cindent
+autocmd FileType cpp,h,hpp setlocal foldmethod=syntax foldlevel=7
 autocmd FileType c,cpp let b:comment_leader = '// '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -126,7 +125,7 @@ autocmd FileType sh,python,ruby let b:comment_leader = '# '
 " TeX/LaTeX
 " Disable annoying bad automatic indentation.
 autocmd FileType tex setlocal indentexpr=
-autocmd FileType tax let b:comment_leader = '% '
+autocmd FileType tex let b:comment_leader = '% '
 
 " vim: ts=8
 
