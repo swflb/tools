@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+    <head>
+        <title>QuiteRSS</title>
+        <dateModified>Tue Feb 7 11:39:36 2023</dateModified>
+    </head>
+    <body>
+        <outline text="QuiteRSS" type="rss" htmlUrl="http://quiterss.org/en/frontpage" xmlUrl="https://quiterss.org/en/rss.xml"/>
+        <outline text="IT">
+            <outline text="gHacks Technology News" type="rss" htmlUrl="https://www.ghacks.net" xmlUrl="https://www.ghacks.net/feed/"/>
+            <outline text="Engadget is a web magazine with obsessive daily coverage of everything new in gadgets and consumer electronics" type="rss" htmlUrl="https://www.engadget.com/" xmlUrl="http://www.engadget.com/rss.xml"/>
+            <outline text="Martin Fowler" type="rss" htmlUrl="https://martinfowler.com" xmlUrl="https://martinfowler.com/feed.atom"/>
+            <outline text="How-To Geek" type="rss" htmlUrl="https://www.howtogeek.com" xmlUrl="https://feeds.howtogeek.com/HowToGeek"/>
+            <outline text="The Verge - All Posts" type="rss" htmlUrl="https://www.theverge.com/" xmlUrl="http://www.theverge.com/rss/index.xml"/>
+        </outline>
+        <outline text="news">
+            <outline text="TheBlaze" type="rss" htmlUrl="https://www.theblaze.com/" xmlUrl="http://theblaze.com/feeds/feed.rss"/>
+            <outline text="Reuters" type="rss" htmlUrl="https://www.reuters.com/" xmlUrl="https://cdn.feedcontrol.net/8/1114-wioSIX3uu8MEj.xml"/>
+            <outline text="The Daily Wire" type="rss" htmlUrl="https://www.dailywire.com" xmlUrl="https://www.dailywire.com/feeds/rss.xml"/>
+            <outline text="Utah News, Sports, Weather, Cars and Classifieds | KSL News" type="rss" htmlUrl="https://www.ksl.com/" xmlUrl="https://www.ksl.com/rss/news"/>
+            <outline text="Ars Technica - All content" type="rss" htmlUrl="https://arstechnica.com" xmlUrl="https://feeds.arstechnica.com/arstechnica/index"/>
+        </outline>
+        <outline text="hacks">
+            <outline text="Lifehacker" type="rss" htmlUrl="https://lifehacker.com" xmlUrl="https://lifehacker.com/rss"/>
+        </outline>
+        <outline text="comic">
+            <outline text="xkcd.com" type="rss" htmlUrl="https://xkcd.com/" xmlUrl="https://xkcd.com/atom.xml"/>
+        </outline>
+    </body>
+</opml>
